@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="maui_zebra_print.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Wybierz drukarkę"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="SelectPrintSmall"
+                Text="mały"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="SelectFirstPrinter"
+                HorizontalOptions="Center" />
+            <Button
+                x:Name="SelectSecodPrinter"
+                Text="większy"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="SelectSecondPrinter"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Connect"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnConnectClick"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="Disconnect"
+                Text="Disconnect"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="DisconnectClick"
+                HorizontalOptions="Center" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="white" WidthRequest="40" HeightRequest="40" />
+            <Entry IsEnabled="{ Binding IsConnected}" Placeholder="Message" IsVisible="{ Binding IsConnected}" x:Name="textInput"  BackgroundColor="Wheat" />
+
+            <Button
+                x:Name="PrintButton"
+                Text="Print"
+                IsVisible="{ Binding IsConnected}"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="Print"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
